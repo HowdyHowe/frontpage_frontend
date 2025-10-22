@@ -50,12 +50,12 @@ export default function LoginPage() {
             const res = await axiosInstance.post("/auth/login", data);
             const result = await res.data;
 
-            setLoading(false)
-
             if (result.statusCode === 400) return showAlert("Invalid Username or Password", "error")
             if (result.statusCode === 500) return showAlert("Server Error", "error")
 
             if (result.statusCode === 200) return router.push("/dashboard")
+
+            setLoading(false)
         } catch (err: unknown) {
             setLoading(false)
 
