@@ -25,7 +25,7 @@ export default function AlertAnimation({ message, show, type }: AlertAnimationTy
                 transition={ { duration: 0.3 } }
                 className="absolute top-[10px] z-50"
             >
-                <div className={`flex items-center justify-center text-center w-[200px] h-[50px] text-white rounded-lg ${
+                <div className={`flex items-center justify-center text-center w-[250px] h-[75px] text-white rounded-xl ${
                     type === "success"
                         ? "bg-[#2563EB]"
                         : type === "error"

@@ -6,7 +6,5 @@ export default function Home() {
   const router = useRouter();
 
   router.push("/login")
-  return(
-    <div></div>
-  );
+  return;
 }

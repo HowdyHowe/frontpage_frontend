@@ -1,42 +1,53 @@
+"use client"
+
 import Card from "@/component/card";
+import DashboardProfilePopup from "@/component/popupProfile";
+import { useState } from "react";
 import { BsInstagram, BsThreads, BsTwitch, BsTwitterX } from "react-icons/bs";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { RxChevronDown } from "react-icons/rx";
+import { MdAccountCircle, MdMenu } from "react-icons/md";
+import { RxChevronDown, RxPerson } from "react-icons/rx";
 
 export default function DashboardPage() {
+    const [ popup, setPopup ] = useState(false);
+
     return(
         <div className="flex flex-col items-center justify-center w-full h-full">
-            <header className="flex flex-row items-center justify-between w-[70%] h-[75px]">
+            <DashboardProfilePopup show={false}/>
+
+            <header className="flex flex-row items-center justify-between w-[90%] h-[75px] lg:w-[70%]">
                 <p className="text-xl">UniloGo</p>
 
-                <div className="flex flex-row gap-20">
-                <div className="flex flex-row items-center gap-12">
-                    <p>Menu</p>
-                    <p>Product</p>
-                    <p>Article</p>
-                    <p>Features</p>
-                    <p>Contact</p>
+                <div className="hidden lg:flex flex-row gap-20">
+                    <div className="flex flex-row items-center lg:gap-12">
+                        <p>Menu</p>
+                        <p>Product</p>
+                        <p>Article</p>
+                        <p>Features</p>
+                        <p>Contact</p>
+                    </div>
+                    <div className="flex flex-row items-center gap-8">
+                        <BsInstagram/>
+                        <BsThreads/>
+                        <BsTwitterX/>
+                        <BsTwitch/>
+                    </div>
+                    <RxPerson className="cursor-pointer" size={25}/>
                 </div>
-                <div className="flex flex-row items-center gap-8">
-                    <BsInstagram/>
-                    <BsThreads/>
-                    <BsTwitterX/>
-                    <BsTwitch/>
-                </div>
-                </div>
+                <MdMenu className="lg:hidden" size={30}/>
             </header>
 
             <main className="relative flex flex-col items-center justify-center w-full">
-                <img src="image2.jpg" alt="Background image" className="w-full h-[700px] object-cover" loading="lazy"/>
-                <div className="absolute top-0 flex items-center justify-center w-full h-[700px] text-8xl font-semibold text-black">
-                    Shop & Enjoy
+                <img src="image2.jpg" alt="Background image" className="w-full h-[600px] object-cover lg:h-[700px]" loading="lazy"/>
+                <div className="absolute top-0 flex items-center justify-center w-full h-[600px] text-black lg:h-[700px]">
+                    <p className="text-3xl font-semibold lg:text-8xl">Shop & Enjoy</p>
                     <RxChevronDown size={30} className="absolute bottom-5 animate-bounce"/>
                 </div>
 
-                <div className="flex flex-col w-[70%] h-full">
+                <div className="flex flex-col w-[90%] h-full lg:w-[70%]">
                 <div className="flex items-center justify-between text-gray-500 mt-[30px]">
                     <p>Show All</p>
-                    <div className="flex flex-row items-center justify-center gap-12">
+                    <div className="flex flex-row items-center justify-center gap-2 lg:gap-12">
                     <p>Web</p>
                     <p>Game</p>
                     <p>Branding</p>
@@ -51,7 +62,7 @@ export default function DashboardPage() {
                             <input type="text" className="w-full h-[40px] bg-transparent" placeholder="Search"/>
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-7 mt-[50px]">
+                    <div className="grid grid-cols-1 gap-7 mt-[30px] lg:grid-cols-3">
                     {
                         Array.from({ length: 6 }, (_, index) => (
                         <Card key={index}/>
@@ -60,11 +71,11 @@ export default function DashboardPage() {
                     </div>
 
                     <div className="flex flex-row items-center justify-center lg:w-[350px]">
-                        <div className="flex items-center justify-center w-[50px] h-[50px]">Previous</div>
+                        <div className="flex items-center justify-center w-[100px] h-[50px] font-semibold">Previous</div>
                         <div className="flex items-center justify-center w-[50px] h-[50px]">1</div>
                         <div className="flex items-center justify-center w-[50px] h-[50px] border rounded-lg">2</div>
                         <div className="flex items-center justify-center w-[50px] h-[50px]">3</div>
-                        <div className="flex items-center justify-center w-[50px] h-[50px]">Next</div>
+                        <div className="flex items-center justify-center w-[100px] h-[50px] font-semibold">Next</div>
                     </div>
                 </div>
 
