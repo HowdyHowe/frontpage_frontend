@@ -13,8 +13,8 @@ import axios from "axios";
 
 const signupSchema = z.object({
     username: z.string().min(5, "Username must be at least 5 letter"),
-    password: z.string().min(8, "Username must be at least 8 letter"),
-    confirmPassword: z.string().min(8, "Username must be at least 8 letter"),
+    password: z.string().min(8, "Password must be at least 8 letter"),
+    confirm_password: z.string().min(8, "Confirm Password must be at least 8 letter"),
 })
 
 type SignupForm = z.infer<typeof signupSchema>;
@@ -46,15 +46,17 @@ export default function SignupPage() {
 
     const onSubmit = async (data: SignupForm) => {
         try {
+            if (data.password !== data.confirm_password) return showAlert("Password and Confirm Password Is Not Identical", "error")
+
             setLoading(true);
+
             const res = await axiosInstance.post("/auth/signup", data);
             const result = await res.data;
 
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000)
+            setLoading(false)
 
             if (result.statusCode === 400) return showAlert("Invalid Username or Password", "error")
+            if (result.statusCode === 401) return showAlert("Password and Confirm Password Is Not Identical", "error")
             if (result.statusCode === 409) return showAlert("Username Already Exist", "error")
             if (result.statusCode === 500) return showAlert("Server Error", "error")
 
@@ -124,7 +126,7 @@ export default function SignupPage() {
 
                     <label className="text-md font-semibold lg:text-lg">Confirm Password</label>
                     <div className="flex flex-row items-center w-full h-[50px] border-[2px] rounded-lg">
-                        <input type={visibleConPass ? "text": "password"} {...register("confirmPassword")} className="w-full h-full px-3 bg-transparent placeholder:text-sm placeholder:lg:text-lg placeholder:text-[#64748B]" placeholder="Input Confirm Password"/>
+                        <input type={visibleConPass ? "text": "password"} {...register("confirm_password")} className="w-full h-full px-3 bg-transparent placeholder:text-sm placeholder:lg:text-lg placeholder:text-[#64748B]" placeholder="Input Confirm Password"/>
                         <div className="m-3" onClick={
                                 () => setVisibleConPass(!visibleConPass)
                             }
@@ -137,7 +139,7 @@ export default function SignupPage() {
                         </div>
                     </div>
                     {/* Error sign for password */}
-                    {errors.confirmPassword && <p className="text-sm text-[#DC2626]">{errors.confirmPassword.message}</p>}
+                    {errors.confirm_password && <p className="text-sm text-[#DC2626]">{errors.confirm_password.message}</p>}
 
                     {/* sizedbox for padding */}
                     <div className="h-[15px]"/>

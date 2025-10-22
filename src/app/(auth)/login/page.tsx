@@ -46,12 +46,11 @@ export default function LoginPage() {
     const onSubmit = async (data: LoginForm) => {
         try {
             setLoading(true);
+
             const res = await axiosInstance.post("/auth/login", data);
             const result = await res.data;
 
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000);
+            setLoading(false)
 
             if (result.statusCode === 400) return showAlert("Invalid Username or Password", "error")
             if (result.statusCode === 500) return showAlert("Server Error", "error")

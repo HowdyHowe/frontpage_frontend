@@ -9,8 +9,8 @@ type AlertAnimationType = {
 
 export default function AlertAnimation({ message, show, type }: AlertAnimationType) {
     useEffect(() => {
-        if (!show) document.body.style.overflow = "hidden"
-        if (show) document.body.style.overflow = ""
+        if (show) document.body.style.overflow = "hidden"
+        if (!show) document.body.style.overflow = ""
     }, [show])
 
     if (!show) return null
