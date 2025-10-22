@@ -1,22 +1,40 @@
 "use client"
 
+import z from "zod";
 import { useState } from "react"
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { LuEye, LuEyeOff } from "react-icons/lu"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch } from "react-redux";
+import axiosInstance from "@/component/axiosInstance";
 
-const loginSchema = z.object
+const loginSchema = z.object({
+    username: z.string().min(5, "Username must be at least 5 letter"),
+    password: z.string().min(8, "Username must be at least 8 letter"),
+})
+
+type LoginForm = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>({ resolver: zodResolver(loginSchema) });
     const [ visible, setVisible ] = useState(false);
     const router = useRouter();
+    const dispatch = useDispatch();
 
-    const onSubmit = () => {
+    const onSubmit = async (data: LoginForm) => {
         try {
+            const res = await axiosInstance.post("/auth/login", data);
+            const result = await res.data;
+
+            if (result.statusCode === 400) {
+                
+            }
 
         } catch (err: unknown) {
 
         }
-    }
+    };
 
     return (
         <div className="flex flex-col-reverse items-center justify-center w-full h-full lg:flex-row">
