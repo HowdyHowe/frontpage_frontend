@@ -71,10 +71,12 @@ export default function Home() {
           <div className="w-full h-full mt-[50px] px-5 border rounded-lg">
             <div className="flex flex-row items-center justify-between mt-[30px]">
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                <div className="min-w-[300px] h-[300px] bg-black rounded-full ml-5"/>
+                {/* <div className="min-w-[300px] h-[300px] bg-black rounded-full ml-5"/> */}
+                <img src={"/image3.jpg"} alt="Image" className="min-w-[300px] h-[300px] bg-black rounded-full ml-5 object-cover" loading="lazy"/>
             </div>
             <div className="flex flex-row items-center justify-between mb-[30px]">
-                <div className="min-w-[300px] h-[300px] bg-black rounded-full mr-5"/>
+                {/* <div className="min-w-[300px] h-[300px] bg-black rounded-full mr-5"/> */}
+                <img src={"/image3.jpg"} alt="Image" className="min-w-[300px] h-[300px] bg-black rounded-full mr-5 object-cover" loading="lazy"/>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
             </div>
           </div>

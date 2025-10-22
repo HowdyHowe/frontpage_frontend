@@ -1,4 +1,5 @@
 import "@/style/style.scss"
+import Provider from "@/store/provider";
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 
@@ -19,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={archivo.className}>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );
