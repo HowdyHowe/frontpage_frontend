@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Service - Next.js (TypeScript)
 
-## Getting Started
+## 📘 Deskripsi Proyek
+Proyek ini merupakan antarmuka pengguna (frontend) yang dibangun menggunakan **Next.js** dengan **TypeScript**.  
+Aplikasi ini berfungsi sebagai tampilan utama yang berkomunikasi dengan layanan backend melalui API.
 
-First, run the development server:
+## 🧩 Teknologi yang Digunakan
+- Node.js v22+
+- Next.js 14+
+- TypeScript
+- React
+- Tailwind CSS
+- Axios (untuk komunikasi API)
 
-```bash
+## 📂 Struktur Direktori Utama
+frontend/
+├── src/
+│   ├── pages/
+│   ├── components/
+│   ├── styles/
+│   └── utils/
+├── package.json
+├── tsconfig.json
+└── next.config.js
+
+## ⚙️ Langkah Instalasi
+
+### 1. Persiapan Lingkungan
+Pastikan telah menginstal:
+- Node.js (versi 22 atau lebih baru)
+- npm (biasanya sudah terinstal bersama Node.js)
+
+### 2. Kloning Repositori
+git clone <url-repositori>
+cd frontend
+
+### 3. Instalasi Dependensi
+npm install
+
+### 4. Menjalankan Server (Mode Pengembangan)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikasi akan berjalan di:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧱 Menjalankan Mode Produksi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Build Aplikasi
+npm run build
 
-## Learn More
+### 2. Jalankan Aplikasi Produksi
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+Aplikasi akan berjalan di port default 3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 Skrip NPM
+Perintah          | Deskripsi
+------------------|----------------------------------
+npm run dev       | Menjalankan server pengembangan
+npm run build     | Membangun aplikasi untuk produksi
+npm start         | Menjalankan aplikasi hasil build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧾 Lisensi
+Proyek ini dikembangkan untuk keperluan pembelajaran dan pengembangan sistem frontend berbasis Next.js.
