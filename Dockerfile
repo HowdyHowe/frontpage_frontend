@@ -2,7 +2,7 @@ ARG NODE_VERSION=22.20.0
 
 FROM node:${NODE_VERSION}-alpine
 
-WORKDIR /src
+WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
