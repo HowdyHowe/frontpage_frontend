@@ -53,6 +53,8 @@ export default function SignupPage() {
             const res = await axiosInstance.post("/auth/signup", data);
             const result = await res.data;
 
+            setLoading(false);
+
             if (result.statusCode === 400) return showAlert("Invalid Username or Password", "error")
             if (result.statusCode === 401) return showAlert("Password and Confirm Password Is Not Identical", "error")
             if (result.statusCode === 409) return showAlert("Username Already Exist", "error")
@@ -63,7 +65,6 @@ export default function SignupPage() {
                 return router.push("/login");
             }
 
-            setLoading(false)
         } catch (err: unknown) {
             setLoading(false)
 
